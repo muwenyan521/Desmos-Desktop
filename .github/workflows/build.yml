@@ -2,9 +2,9 @@ name: Build Desktop Applications
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   create:
     types: [tag]
 
@@ -47,7 +47,7 @@ jobs:
       run: npm run dist
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.artifact-name }}
         path: |
@@ -66,7 +66,7 @@ jobs:
           dist/*.exe
           dist/*.AppImage
           dist/*.dmg
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
         tag_name: ${{ env.NEW_VERSION }}
         body: Release notes generated from CI
       if: startsWith(github.ref, 'refs/tags/')
