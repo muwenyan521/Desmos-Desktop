@@ -2,6 +2,7 @@
 Desmos 是一款基于JavaScript开发的先进数学函数图形计算器，提供网页版和移动版应用。本项目使用Electron框架构建跨平台离线桌面版本，支持函数绘图、本地保存、截图导出等功能，内置示例文件于`'examples'`目录。
 
 <img src="./res/app.png" width="600"/>
+
 ## 安装指南
 已编译的二进制文件发布在Release页面，目前提供Windows和Linux(Ubuntu)版本。如需macOS或其他平台版本，请通过源码编译。
 
