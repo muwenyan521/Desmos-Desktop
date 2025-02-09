@@ -3,10 +3,6 @@ name: Build Desktop Applications
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  create:
-    types: [tag]
 
 jobs:
   build:
