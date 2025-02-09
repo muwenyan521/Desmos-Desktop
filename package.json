@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "release": "npm run dist && npx github-release upload"
   },
   "keywords": [
     "desmos",
@@ -28,10 +29,16 @@
     },
     "win": {
       "icon": "res/icons/icon.png"
+    },
+    "mac": {
+      "icon": "res/icons/icon.png",
+      "target": [
+        "dmg"
+      ]
     }
   },
   "devDependencies": {
-    "electron": "^3.0.6",
-    "electron-builder": "^20.28.4"
+    "electron": "^26.2.1",
+    "electron-builder": "^24.17.0"
   }
 }
