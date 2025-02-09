@@ -14,7 +14,7 @@
     "math",
     "graphics"
   ],
-  "author": "DingShizhe",
+  "author": "muwenyan521",
   "license": "MIT",
   "dependencies": {
     "electron-store": "^2.0.0"
