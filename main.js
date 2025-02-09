@@ -23,42 +23,42 @@ function sendReq(msg, data=null) {
 // Window menu template
 const menuTemplate = [
     {
-        label: 'File',
+        label: '文件',
         submenu : [
             {
-                label: 'New', accelerator: 'CmdOrCtrl+N',
+                label: '新建', accelerator: 'CmdOrCtrl+N',
                 click () {  sendReq('NewFile'); }
             },{
-                label: 'Open', accelerator: 'CmdOrCtrl+O',
+                label: '打开', accelerator: 'CmdOrCtrl+O',
                 click () {  sendReq('OpenFile');    }
             },{
-                label: 'Save', accelerator: 'CmdOrCtrl+S',
+                label: '保存', accelerator: 'CmdOrCtrl+S',
                 click () {  sendReq('SaveFile');    }
             },{
-                label: 'Save As', accelerator: 'CmdOrCtrl+Shift+S',
+                label: '另存为', accelerator: 'CmdOrCtrl+Shift+S',
                 click () {  sendReq('SaveAsFile');  }
             },{type: 'separator'},{
-                label: 'Export',
+                label: '导出',
                 accelerator: 'CmdOrCtrl+E',
                 click () {  sendReq('ExportImage'); }
             }
         ]
     },{
-        label: 'Edit',
+        label: '编辑',
         submenu:[
             {
-                label: 'Undo', accelerator: 'CmdOrCtrl+Z',
+                label: '撤销', accelerator: 'CmdOrCtrl+Z',
                 click () {  sendReq('Undo');    }
             },{
-                label: 'Redo', accelerator: 'CmdOrCtrl+Shift+Z',
+                label: '重做', accelerator: 'CmdOrCtrl+Shift+Z',
                 click () {  sendReq('Redo');    }
             },{
-                label: 'Clear', accelerator: 'CmdOrCtrl+Shift+C',
+                label: '清除', accelerator: 'CmdOrCtrl+Shift+C',
                 click () {  sendReq('Clear');    }
             }
         ]
     },{
-        label: 'View',
+        label: '视图',
         submenu: [
             // {role: 'reload'},
             // {role: 'forcereload'},
@@ -74,7 +74,7 @@ const menuTemplate = [
         role: 'help',
         submenu:[
             {
-                label: 'Learn More',
+                label: '了解更多',
                 accelerator: 'CmdOrCtrl+H',
                 click () {
                     createInfoWindow();

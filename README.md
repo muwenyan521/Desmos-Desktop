@@ -1,47 +1,36 @@
-# Desmos Desktop
-
-[Desmos](https://www.desmos.com/about) is an advanced graphing calculator implemented as a web application and a mobile application written in JavaScript. Here is a very simple cross-platform desktop version. **Plotting, saving, opening and exporting offlinely** are supportive. Examples are in 'examples' folder.
-
-[Desmos](https://www.desmos.com/about) 是一款优秀的、免费的在线数学函数计算器。它基于JavaScript，有在线版和手机版。这里是一个基于[Electron](http://electron.atom.io/)的**简单的离线桌面版**，可以离线绘制和保存以及输出截图。支持linux, Mac 和 Win平台(目前还没有在Mac上尝试，留下贫穷的眼泪...)。
+# Desmos Desktop 桌面版
+Desmos 是一款基于JavaScript开发的先进数学函数图形计算器，提供网页版和移动版应用。本项目使用Electron框架构建跨平台离线桌面版本，支持函数绘图、本地保存、截图导出等功能，内置示例文件于`'examples'`目录。
 
 <img src="./res/app.png" width="600"/>
+## 安装指南
+已编译的二进制文件发布在Release页面，目前提供Windows和Linux(Ubuntu)版本。如需macOS或其他平台版本，请通过源码编译。
 
-## Install
+安装后可使用软件打开`'examples'`目录中的.des示例文件。
 
-The executable binary files have been released  [here](https://github.com/DingShizhe/Desmos-Desktop/releases/tag/v1.0.0). There are only win and linux(ubuntu) versions. If you want Mac(or other platforms) version, try to build it.
-
-After installation, try to use it to open the `des` files in 'examples'.
-
-## Build
-```
+## 编译指南
+```bash
 git clone https://github.com/DingShizhe/Desmos-Desktop.git
 cd Desmos-Desktop
 npm install -d
 npm run dist
-cd dist && ls   # WOW! Then move the package wherever you want. 
+cd dist && ls   # 生成的可执行文件位于此目录
 ```
-On linux, you need edit ./res/appimagekit-desmos.desktop properly and move it to ./local/share/applications.
+Linux系统需手动编辑`./res/appimagekit-desmos.desktop`文件并放置于`./local/share/applications`目录。
 
-## Dependency
-- [Node.js](https://nodejs.org/en/)
-- [Electron](http://electron.atom.io/)
-- [Desmos API](https://www.desmos.com/api/)
-
-
-## Simple Functions (features) Now
-Now you can use this simple app to
-- Draw mathematical curves just like the web version
-- Export screenshot as `.png` file
-- Save or reload graph state as `.des` file (just json)
-- Fade out message effect.
-- Note when new a file or close file but current file hasnot been saved
-- Open the last opened file when launch
-- Use 'examples/getDesByUrl.py' to get `.des` file from desmos website
-  .
-
-## My Artworks (except the last one)
-
-Try open `.des` files in 'examples'.
+## 依赖环境
+- Node.js 运行环境
+- Electron 框架
+- Desmos API 图形引擎
+## 功能特性
+- 完整实现Web版核心绘图功能
+- 支持PNG格式图形导出
+- 本地工程文件保存/加载（.des格式，基于JSON）
+- 消息提示淡出效果
+- 新建/关闭未保存文件时提示
+- 自动加载最近打开的文件
+- 提供`examples/getDesByUrl.py`工具下载Desmos官网作品
+## 示例作品
+打开'examples'目录中的.des文件查看以下作品：
 
 <img src="res/Cardioid.png" width="200"/> <img src="res/Folded Conic Section.png" width="200"/> <img src="res/Folded Conic Section2.png" width="200"/>
 
@@ -49,4 +38,6 @@ Try open `.des` files in 'examples'.
 
 <img src="res/Mobius.png" width="200"/> <img src="res/Astroid.png" width="200"/> <img src="res/Powerpuff Grils.png" width="200"/>
 
-Hope this helpful. Enjoy ;)
+
+
+希望本工具能为您的工作学习带来便利，欢迎体验！ ;)

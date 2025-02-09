@@ -38,7 +38,7 @@ function setTitle() {
     if (StateData.file_path)
         document.title = "Desmos - " + StateData.file_path;
     else
-        document.title = "Desmos - * Untitled";
+        document.title = "Desmos - * 未命名";
     ipcRenderer.send('renderer-request', {msg: 'TitleChanged', data: StateData.file_path});
 }
 
@@ -75,7 +75,7 @@ function openFile(filePath=null, init=false) {
 
     fs.readFile(filePath, (err, data) => {
         if(err){
-            showAlert("Error on openning :( " + err.message);
+            showAlert("打开时出现错误 :( " + err.message);
             calculator.setBlank();
         }
         set_caculator_state(data);
@@ -90,7 +90,7 @@ function saveFile() {
     if(!StateData.file_path){
         const file = dialog.showSaveDialog(remote.getCurrentWindow(), {
             filters: [
-                { name: "Desmos Files", extensions: ['des'] }]
+                { name: "Desmos 文件", extensions: ['des'] }]
         });
         if(file) StateData.file_path=file;
     }
@@ -107,7 +107,7 @@ function saveFile() {
 function saveAsFile() {
     const file = dialog.showSaveDialog(remote.getCurrentWindow(), {
         filters: [
-        { name: "Desmos Files", extensions: ['des'] }]
+        { name: "Desmos 文件", extensions: ['des'] }]
     });
     if(file) StateData.file_path=file;
     if(StateData.file_path){
@@ -132,15 +132,15 @@ function exportImage() {
     dialog.showSaveDialog({filters: [ {name: 'png', extensions: ['png'] }]},
         (fileName) => {
         if (fileName === undefined){
-            console.log("You didn't open the file.");
+            console.log("你没有打开文件.");
             return;
         }
         // fileName is a string that contains the path and filename created in the save file dialog.
         fs.writeFile(fileName, image_data, 'base64', (err) => {
             if(err){
-                alert("An error ocurred creating the file. :( "+ err.message)
+                alert("创建文件时出现错误. :( "+ err.message)
             }
-            showAlert("Succesfully exported. ;)");
+            showAlert("导出成功. ;)");
         });
     }); 
 }
@@ -169,9 +169,9 @@ function isSaved() {
 function askSaveIfNeed(){
     if(isSaved()) return true;
     const response = dialog.showMessageBox(remote.getCurrentWindow(), {
-        message: 'Do you want to save the current document?',
+        message: '你想要保存当前文档吗?',
         type: 'question',
-        buttons: [ 'Yes', 'No', 'Cancel' ]
+        buttons: [ '是', '否', '取消' ]
     });
     // Yes to save
     if (response == 0)
@@ -188,7 +188,7 @@ function askSaveIfNeed(){
 function exitApp() {
     var exit = askSaveIfNeed();    
     if (exit) {
-        showAlert('Exiting...', 0);
+        showAlert('退出中...', 0);
         setTimeout(()=>{
             ipcRenderer.sendSync('renderer-response', {msg: 'Exit'});
         }, 600);
